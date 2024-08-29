@@ -126,19 +126,19 @@ lazy_static! {
     });
 }
 
-pub fn print_something() {
-    use core::fmt::Write;
-    let mut writer = Writer {
-        column_position: 0,
-        color_code: ColorCode::new(Color::Yellow, Color::Black),
-        buffer: unsafe { &mut *(0xb8000 as *mut Buffer) },
-    };
-
-    writer.write_byte(b'H');
-    writer.write_string("ell ");
-    writer.write_string("World ");
-    write!(writer, "Numbers {} and {}", 666, 1.0/3.0).unwrap();
-}
+// pub fn print_something() {
+//     use core::fmt::Write;
+//     let mut writer = Writer {
+//         column_position: 0,
+//         color_code: ColorCode::new(Color::Yellow, Color::Black),
+//         buffer: unsafe { &mut *(0xb8000 as *mut Buffer) },
+//     };
+//
+//     writer.write_byte(b'H');
+//     writer.write_string("ell ");
+//     writer.write_string("World ");
+//     write!(writer, "Numbers {} and {}", 666, 1.0/3.0).unwrap();
+// }
 
 #[macro_export]
 macro_rules! print {
